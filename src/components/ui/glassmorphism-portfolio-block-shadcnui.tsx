@@ -52,7 +52,7 @@ function SocialIcon({ name }: { name: SocialLink["icon"] }) {
 
 export function GlassmorphismPortfolioBlock() {
   return (
-    <section id="about" className="relative flex min-h-screen w-full snap-start items-start justify-center overflow-x-clip px-4 pt-24 pb-8 text-white sm:px-6 sm:pt-28 sm:pb-10 lg:px-8 lg:py-28">
+    <section id="about" className="relative flex min-h-screen w-full snap-start items-center justify-center overflow-x-clip px-4 pt-24 pb-8 text-white sm:px-6 sm:pt-28 sm:pb-10 lg:px-8 lg:py-28 2xl:py-12">
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
         <div className="absolute left-[8%] top-[18%] size-72 rounded-full bg-violet-500/10 blur-[110px]" />
         <div className="absolute bottom-[8%] right-[10%] size-80 rounded-full bg-cyan-400/[0.07] blur-[120px]" />
@@ -64,7 +64,7 @@ export function GlassmorphismPortfolioBlock() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.45, ease: "easeOut" }}
-          className="mb-3 space-y-1 text-center sm:mb-4"
+          className="mb-3 space-y-1 text-center sm:mb-4 2xl:mb-3"
         >
           <p className="type-label uppercase tracking-[0.3em] text-violet-400">Get to know me</p>
           <h2 className="type-section-title font-bold tracking-tight text-white">About</h2>
@@ -78,16 +78,16 @@ export function GlassmorphismPortfolioBlock() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.15 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-        className="relative overflow-hidden rounded-3xl border border-white/10 bg-[#0b0b16]/45 p-3 shadow-[0_24px_90px_rgba(0,0,0,.22)] backdrop-blur-2xl sm:p-5 lg:p-6"
+        className="relative overflow-hidden rounded-3xl border border-white/10 bg-[#0b0b16]/45 p-3 shadow-[0_24px_90px_rgba(0,0,0,.22)] backdrop-blur-2xl sm:p-5 lg:p-6 2xl:p-5"
         >
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/[0.045] via-transparent to-violet-400/[0.035]" />
-          <div className="relative grid grid-cols-1 items-center gap-5 sm:gap-7 lg:grid-cols-2 lg:gap-8">
-            <div className="order-2 space-y-6 lg:order-1 sm:space-y-7">
+          <div className="relative grid grid-cols-1 items-center gap-5 sm:gap-7 lg:grid-cols-2 lg:gap-8 2xl:gap-6">
+            <div className="order-2 space-y-6 lg:order-1 sm:space-y-7 2xl:space-y-4">
               <span className="inline-flex items-center rounded-full border border-violet-300/20 bg-violet-400/[0.07] px-3.5 py-1.5 type-label font-medium uppercase tracking-[0.2em] text-violet-200/80 backdrop-blur">
                 About me
               </span>
 
-              <div className="space-y-4">
+              <div className="space-y-4 2xl:space-y-3">
                 <motion.h2
                   initial={{ opacity: 0, y: 16 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -103,13 +103,13 @@ export function GlassmorphismPortfolioBlock() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.45, delay: 0.14 }}
-                  className="type-body max-w-[38rem] leading-relaxed text-white/65"
+                  className="type-body max-w-[38rem] leading-relaxed text-white/65 2xl:leading-snug"
                 >
                   I’m a Full Stack Software Developer with 2+ years of hands-on experience turning ideas and business requirements into functional web applications. I enjoy building responsive user interfaces, integrating APIs, and developing reliable backend solutions using React.js, Next.js, Node.js, and Python. As a quick learner, I adapt to new technologies and challenges while valuing collaboration, clear communication, and understanding client needs to create meaningful digital experiences.
                 </motion.p>
               </div>
 
-              <div className="space-y-3 border-t border-white/10 pt-4">
+              <div className="space-y-3 border-t border-white/10 pt-4 2xl:space-y-2 2xl:pt-3">
                 <h3 className="type-subheading font-semibold tracking-tight text-white">Tech Stack</h3>
                 <ToolchainMarquee stacks={techStacks} rows={2} duration={28} />
               </div>
@@ -132,7 +132,7 @@ export function GlassmorphismPortfolioBlock() {
 
             <div className="relative order-1 mx-auto w-full max-w-md lg:order-2 lg:max-w-none">
               <div className="absolute -inset-4 rounded-[32px] bg-gradient-to-b from-violet-400/15 via-transparent to-cyan-300/[0.08] blur-3xl" />
-              <div className="relative flex h-full flex-col justify-between overflow-hidden rounded-[28px] border border-white/12 bg-white/[0.035] p-4 backdrop-blur-2xl sm:p-5 lg:p-6">
+              <div className="relative flex h-full flex-col justify-between overflow-hidden rounded-[28px] border border-white/12 bg-white/[0.035] p-4 backdrop-blur-2xl sm:p-5 lg:p-6 2xl:p-5">
                 <div className="flex flex-col items-center text-center">
                   <motion.div
                     initial={{ opacity: 0, scale: 0.88 }}
@@ -142,7 +142,7 @@ export function GlassmorphismPortfolioBlock() {
                     className="relative mb-3"
                   >
                     <div className="absolute inset-[-1rem] rounded-full bg-violet-400/20 blur-2xl" />
-                    <img src={profileImage} alt="Ankit Paul" className="relative size-24 rounded-full border border-white/20 object-cover shadow-[0_20px_55px_rgba(0,0,0,.45)] sm:size-28 lg:size-32" />
+                    <img src={profileImage} alt="Ankit Paul" className="relative size-24 rounded-full border border-white/20 object-cover shadow-[0_20px_55px_rgba(0,0,0,.45)] sm:size-28 lg:size-32 2xl:size-28" />
                   </motion.div>
 
                   <div className="space-y-1">
@@ -159,7 +159,7 @@ export function GlassmorphismPortfolioBlock() {
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true, margin: "-40px" }}
-                  className="mt-4 flex flex-col gap-2"
+                  className="mt-4 flex flex-col gap-2 2xl:mt-3 2xl:gap-1.5"
                 >
                   {socialLinks.map((social) => (
                     <motion.a

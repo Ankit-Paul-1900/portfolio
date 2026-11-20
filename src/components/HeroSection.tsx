@@ -79,13 +79,11 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
-          className="type-display max-w-4xl font-bold tracking-tight text-white"
+          className="max-w-6xl text-[clamp(2.5rem,5.4vw,5rem)] leading-[1.02] font-semibold tracking-[-0.045em] text-white"
         >
-          I build fast, scalable, and{" "}
           <span className="animate-gradient-x bg-gradient-to-r from-violet-300 via-violet-400 to-cyan-300 bg-clip-text text-transparent">
-            user-focused
-          </span>{" "}
-          web applications.
+            Full Stack Software Developer
+          </span>
         </motion.h1>
 
        <motion.div
@@ -105,7 +103,7 @@ export function HeroSection() {
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
           className="type-body mt-4 max-w-2xl text-white/55"
         >
-          Full Stack Software Developer turning ideas into reliable digital products with robust, scalable architecture.
+          Building modern web experiences with scalable frontend and backend solutions.
         </motion.p>
 
         <motion.div
