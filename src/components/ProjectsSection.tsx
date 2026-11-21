@@ -13,59 +13,70 @@ gsap.registerPlugin(ScrollTrigger);
 
 const projects = [
   {
-    title: "Full Stack Web Applications",
+    title: "ChatVerse — Real-Time Chat Application",
     description:
-      "Responsive, end-to-end products built around clear user experiences, reliable APIs, and maintainable architecture.",
+      "A real-time messaging platform featuring secure authentication, online user status, instant messaging, and image sharing with a responsive chat interface.",
     image:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1400&auto=format&fit=crop",
-    imageAlt: "Analytics dashboard displayed on a laptop",
-    badge: "Web Development",
-    tags: ["React", "Node.js", "REST APIs"],
-    accent: "#a78bfa",
-  },
-  {
-    title: "Business Process Solutions",
-    description:
-      "Practical workflow and collaboration tools that help teams simplify everyday processes and work more efficiently.",
-    image:
-      "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1400&auto=format&fit=crop",
-    imageAlt: "Team collaborating around a table",
-    badge: "Automation",
-    tags: ["PowerApps", "Power Automate", "SharePoint"],
-    accent: "#818cf8",
-  },
-  {
-    title: "Modern UI Experiences",
-    description:
-      "Reusable interfaces with thoughtful motion, accessible interactions, and layouts that feel at home on every screen.",
-    image:
-      "https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=1400&auto=format&fit=crop",
-    imageAlt: "Colorful design work arranged on a desk",
-    badge: "Frontend",
-    tags: ["TypeScript", "Tailwind CSS", "Framer Motion"],
-    accent: "#c084fc",
-  },
-  {
-    title: "Data Driven Dashboards",
-    description:
-      "Clear, responsive views for turning complex information into useful insights and helping people make informed decisions.",
-    image:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1400&auto=format&fit=crop",
-    imageAlt: "Data visualizations on a computer display",
-    badge: "Analytics",
-    tags: ["React", "Charts", "API Integration"],
+      "https://images.unsplash.com/photo-1611746872915-64382b5c76da?q=80&w=1400&auto=format&fit=crop",
+    imageAlt: "Messaging interface on a digital screen",
+    badge: "Full Stack",
+    tags: ["Next.js", "Node.js", "Socket.IO", "MongoDB", "Cloudinary"],
     accent: "#67e8f9",
   },
   {
-    title: "Scalable API Platforms",
+    title: "AI-Powered Quiz Application",
     description:
-      "Backend foundations for modern applications, with structured services, dependable data flows, and room to grow.",
+      "An interactive quiz platform that leverages AI to generate engaging questions and learning experiences through intelligent content generation.",
     image:
-      "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1400&auto=format&fit=crop",
-    imageAlt: "Server infrastructure with blue lights",
-    badge: "Backend",
-    tags: ["Node.js", "Python", "Databases"],
+      "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=1400&auto=format&fit=crop",
+    imageAlt: "Study materials and a laptop on a desk",
+    badge: "AI Integration",
+    tags: ["Next.js", "Hugging Face API", "JavaScript", "AI"],
+    accent: "#a78bfa",
+  },
+  {
+    title: "CineArchive — Movie Discovery Platform",
+    description:
+      "A movie discovery application featuring dynamic movie listings, detailed movie information, and API-driven content with a clean and responsive user experience.",
+    image:
+      "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=1400&auto=format&fit=crop",
+    imageAlt: "Cinema screen in a movie theater",
+    badge: "Web Application",
+    tags: ["React", "Node.js", "Express.js", "TMDB API"],
+    accent: "#c084fc",
+  },
+  {
+    title: "Payment QR Code Generator",
+    description:
+      "A flexible QR code generation tool that creates scannable codes for payment details, merchant information, and custom URLs.",
+    image:
+      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=1400&auto=format&fit=crop",
+    imageAlt: "Digital payment transaction using a mobile device",
+    badge: "Utility",
+    tags: ["Next.js", "QR Generation", "JavaScript", "UI Design"],
     accent: "#818cf8",
+  },
+  {
+    title: "Emotion-Based Music Recommendation",
+    description:
+      "An experimental application that uses computer vision and emotion recognition to identify facial expressions and recommend music based on detected emotions.",
+    image:
+      "https://images.unsplash.com/photo-1516280440614-37939bbacd81?q=80&w=1400&auto=format&fit=crop",
+    imageAlt: "Person listening to music with headphones",
+    badge: "Machine Learning",
+    tags: ["Python", "OpenCV", "Machine Learning", "Anaconda"],
+    accent: "#67e8f9",
+  },
+  {
+    title: "Business Workflow Automation",
+    description:
+      "A business-oriented application designed to digitize workflows, streamline data collection, and automate processes through integrated business tools.",
+    image:
+      "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1400&auto=format&fit=crop",
+    imageAlt: "Team collaborating on business processes",
+    badge: "Automation",
+    tags: ["PowerApps", "Power Automate", "SharePoint", "Power BI"],
+    accent: "#a78bfa",
   },
 ];
 

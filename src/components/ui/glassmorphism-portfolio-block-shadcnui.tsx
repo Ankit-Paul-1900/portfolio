@@ -87,7 +87,7 @@ export function GlassmorphismPortfolioBlock() {
                 About me
               </span>
 
-              <div className="space-y-4 2xl:space-y-3">
+              <div className="space-y-4 2xl:space-y-2">
                 <motion.h2
                   initial={{ opacity: 0, y: 16 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -96,7 +96,7 @@ export function GlassmorphismPortfolioBlock() {
                   className="type-section-title font-semibold leading-[1.08] tracking-tight text-white"
                 >
                   <span className="block text-white/65">Hi there,</span>
-                  <span className="mt-1 block bg-gradient-to-r from-white via-violet-100 to-violet-300 bg-clip-text text-transparent">I'm Ankit Paul</span>
+                  <span className="block bg-gradient-to-r from-white via-violet-100 to-violet-300 bg-clip-text text-transparent">I'm Ankit Paul</span>
                 </motion.h2>
                 <motion.p
                   initial={{ opacity: 0, y: 14 }}
@@ -105,7 +105,7 @@ export function GlassmorphismPortfolioBlock() {
                   transition={{ duration: 0.45, delay: 0.14 }}
                   className="type-body max-w-[38rem] leading-relaxed text-white/65 2xl:leading-snug"
                 >
-                  I’m a Full Stack Software Developer with 2+ years of hands-on experience turning ideas and business requirements into functional web applications. I enjoy building responsive user interfaces, integrating APIs, and developing reliable backend solutions using React.js, Next.js, Node.js, and Python. As a quick learner, I adapt to new technologies and challenges while valuing collaboration, clear communication, and understanding client needs to create meaningful digital experiences.
+                  I’m a Full Stack Software Developer with 2+ years of hands-on experience turning ideas and business requirements into functional web applications. I enjoy building responsive user interfaces, integrating APIs, and developing reliable backend solutions. As a quick learner, I adapt to new technologies and challenges while valuing collaboration, clear communication, and understanding client needs to create meaningful digital experiences.
                 </motion.p>
               </div>
 

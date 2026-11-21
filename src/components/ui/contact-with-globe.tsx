@@ -32,22 +32,34 @@ export default function ContactWithGlobe({
   className,
 }: ContactWithGlobeProps) {
   const [submitMessage, setSubmitMessage] = useState("");
+  const [isSending, setIsSending] = useState(false);
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     const form = event.currentTarget;
     const formData = new FormData(form);
+    // Native `required` validation rejects empty fields; trim as well so a
+    // message made only of whitespace cannot be submitted.
+    for (const field of ["name", "company", "email", "message"] as const) {
+      const value = formData.get(field);
+      if (typeof value !== "string" || !value.trim()) {
+        setSubmitMessage("Please complete every field before sending.");
+        (form.querySelector(`[name="${field}"]`) as HTMLElement | null)?.focus();
+        return;
+      }
+    }
     const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
     const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
     const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
     if (!serviceId || !templateId || !publicKey) {
-      setSubmitMessage("Email sending is not configured yet. Please try again later.");
+      setSubmitMessage("Email sending isn't configured yet. Please email ankitpaul1900@gmail.com directly.");
       return;
     }
 
-    setSubmitMessage("Sending your message…");
+    setIsSending(true);
+    setSubmitMessage("Sending your message...");
     fetch("https://api.emailjs.com/api/v1.0/email/send", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -56,11 +68,12 @@ export default function ContactWithGlobe({
         template_id: templateId,
         user_id: publicKey,
         template_params: {
-          from_name: formData.get("name"),
-          from_company: formData.get("company") || "Not provided",
-          from_email: formData.get("email"),
-          reply_to: formData.get("email"),
-          message: formData.get("message"),
+          to_email: "ankitpaul1900@gmail.com",
+          from_name: String(formData.get("name")).trim(),
+          from_company: String(formData.get("company")).trim(),
+          from_email: String(formData.get("email")).trim(),
+          reply_to: String(formData.get("email")).trim(),
+          message: String(formData.get("message")).trim(),
         },
       }),
     })
@@ -71,6 +84,9 @@ export default function ContactWithGlobe({
       })
       .catch(() => {
         setSubmitMessage("We couldn't send your message. Please try again or email ankitpaul1900@gmail.com directly.");
+      })
+      .finally(() => {
+        setIsSending(false);
       });
   };
 
@@ -154,7 +170,7 @@ export default function ContactWithGlobe({
               </label>
               <label className="type-label flex flex-col gap-1.5 font-semibold uppercase tracking-widest text-slate-500">
                 Company
-                <input name="company" type="text" autoComplete="organization" placeholder="Your company" className="type-body w-full rounded-xl border border-white/10 bg-black/20 px-3.5 py-1.5 font-normal normal-case tracking-normal text-white outline-none transition focus:border-violet-400/50 focus:ring-2 focus:ring-violet-500/10 placeholder:text-slate-600" />
+                <input name="company" type="text" autoComplete="organization" placeholder="Your company" required className="type-body w-full rounded-xl border border-white/10 bg-black/20 px-3.5 py-1.5 font-normal normal-case tracking-normal text-white outline-none transition focus:border-violet-400/50 focus:ring-2 focus:ring-violet-500/10 placeholder:text-slate-600" />
               </label>
             </div>
 
@@ -168,8 +184,8 @@ export default function ContactWithGlobe({
               <textarea name="message" placeholder="Type your message here" rows={2} required className="type-body w-full resize-none rounded-xl border border-white/10 bg-black/20 px-3.5 py-2 font-normal normal-case tracking-normal text-white outline-none transition focus:border-violet-400/50 focus:ring-2 focus:ring-violet-500/10 placeholder:text-slate-600" />
             </label>
 
-            <Button type="submit" className="type-body group h-9 w-fit rounded-xl border border-white/15 bg-white/[0.045] px-6 font-semibold text-white shadow-[0_8px_24px_rgba(0,0,0,.12)] backdrop-blur-xl transition-all hover:-translate-y-0.5 hover:border-violet-300/30 hover:bg-violet-400/[0.1]">
-              Send message
+            <Button type="submit" disabled={isSending} className="type-body group h-9 w-fit rounded-xl border border-white/15 bg-white/[0.045] px-6 font-semibold text-white shadow-[0_8px_24px_rgba(0,0,0,.12)] backdrop-blur-xl transition-all hover:-translate-y-0.5 hover:border-violet-300/30 hover:bg-violet-400/[0.1]">
+              {isSending ? "Sending..." : "Send message"}
               <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
             </Button>
             {submitMessage && <p className="type-label text-slate-400" role="status" aria-live="polite">{submitMessage}</p>}
