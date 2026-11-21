@@ -1,5 +1,5 @@
 import { motion, type Variants } from "framer-motion";
-import { Activity, AppWindow, ArrowUpRight, Atom, Blocks, Braces, Code2, Database, Layers3, Server, Wind, Zap } from "lucide-react";
+import { AppWindow, ArrowUpRight, Atom, Blocks, Braces, Code2, Database, Server, Wind, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ToolchainMarquee, { type ToolchainItem } from "@/components/ui/toolchain-marquee";
 import profileImage from "@/assets/profileimage.jpg";
