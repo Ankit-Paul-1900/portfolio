@@ -21,7 +21,9 @@ const projects = [
     imageAlt: "Messaging interface on a digital screen",
     badge: "Full Stack",
     tags: ["Next.js", "Node.js", "Socket.IO", "MongoDB", "Cloudinary"],
-    accent: "#67e8f9",
+    accent: "#a78bfa",
+    githubUrl: "https://github.com/Ankit-Paul-1900/real-time-chat-application",
+    liveUrl: "",
   },
   {
     title: "AI-Powered Quiz Application",
@@ -32,7 +34,9 @@ const projects = [
     imageAlt: "Study materials and a laptop on a desk",
     badge: "AI Integration",
     tags: ["Next.js", "Hugging Face API", "JavaScript", "AI"],
-    accent: "#a78bfa",
+    accent: "#67e8f9",
+    githubUrl: "https://github.com/Ankit-Paul-1900/AI-enabled-quiz-app",
+    liveUrl: "",
   },
   {
     title: "CineArchive — Movie Discovery Platform",
@@ -44,6 +48,8 @@ const projects = [
     badge: "Web Application",
     tags: ["React", "Node.js", "Express.js", "TMDB API"],
     accent: "#c084fc",
+    githubUrl: "https://github.com/Ankit-Paul-1900/CineArchieve-movie-application",
+    liveUrl: "",
   },
   {
     title: "Payment QR Code Generator",
@@ -55,6 +61,8 @@ const projects = [
     badge: "Utility",
     tags: ["Next.js", "QR Generation", "JavaScript", "UI Design"],
     accent: "#818cf8",
+    githubUrl: "https://github.com/Ankit-Paul-1900/qrcode_generation",
+    liveUrl: "",
   },
   {
     title: "Emotion-Based Music Recommendation",
@@ -66,17 +74,8 @@ const projects = [
     badge: "Machine Learning",
     tags: ["Python", "OpenCV", "Machine Learning", "Anaconda"],
     accent: "#67e8f9",
-  },
-  {
-    title: "Business Workflow Automation",
-    description:
-      "A business-oriented application designed to digitize workflows, streamline data collection, and automate processes through integrated business tools.",
-    image:
-      "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1400&auto=format&fit=crop",
-    imageAlt: "Team collaborating on business processes",
-    badge: "Automation",
-    tags: ["PowerApps", "Power Automate", "SharePoint", "Power BI"],
-    accent: "#a78bfa",
+    githubUrl: "https://github.com/Ankit-Paul-1900/EmotionBasedMusicRecommendationSystem",
+    liveUrl: "",
   },
 ];
 
@@ -89,6 +88,7 @@ export function ProjectsSection({ scrollerRef }: ProjectsSectionProps) {
   const viewportRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
   const [scrollDistance, setScrollDistance] = useState(1);
+  const [openProjectMenu, setOpenProjectMenu] = useState<string | null>(null);
 
   useLayoutEffect(() => {
     const section = sectionRef.current;
@@ -177,9 +177,12 @@ export function ProjectsSection({ scrollerRef }: ProjectsSectionProps) {
               >
                 <NotchedProjectCard
                   {...project}
-                  href="#projects"
                   surface="#080812"
                   className="h-full"
+                  menuOpen={openProjectMenu === project.title}
+                  onMenuOpenChange={(open) =>
+                    setOpenProjectMenu(open ? project.title : null)
+                  }
                 />
               </motion.div>
             ))}

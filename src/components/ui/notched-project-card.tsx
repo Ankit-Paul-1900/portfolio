@@ -3,9 +3,11 @@
 import * as React from "react";
 import { ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { CircleMenu } from "@/components/ui/circle-menu";
 
 export interface NotchedProjectCardProps {
-  href: string;
+  githubUrl?: string;
+  liveUrl?: string;
   title: string;
   description?: string;
   image: string;
@@ -19,6 +21,8 @@ export interface NotchedProjectCardProps {
   accent?: string;
   accentForeground?: string;
   className?: string;
+  menuOpen?: boolean;
+  onMenuOpenChange?: (open: boolean) => void;
 }
 
 const DISC = 64;
@@ -26,7 +30,8 @@ const BLOCK = 80;
 const FILLET = 28;
 
 export function NotchedProjectCard({
-  href,
+  githubUrl,
+  liveUrl,
   title,
   description,
   image,
@@ -40,16 +45,17 @@ export function NotchedProjectCard({
   accent,
   accentForeground = "#0a0a0a",
   className,
+  menuOpen = false,
+  onMenuOpenChange,
 }: NotchedProjectCardProps) {
   const tone = monochrome
     ? "grayscale transition-[filter,scale] duration-500 group-hover:grayscale-0 group-focus-visible:grayscale-0"
     : "transition-[scale] duration-500";
 
   return (
-    <a
-      href={href}
+    <article
       className={cn(
-        "group flex flex-col rounded-[28px] outline-none focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:ring-offset-4 focus-visible:ring-offset-[#080812]",
+        "group relative flex flex-col rounded-[28px]",
         className,
       )}
     >
@@ -109,25 +115,27 @@ export function NotchedProjectCard({
           />
         ))}
 
-        <span
-          aria-hidden
-          className={cn(
-            "absolute bottom-0 right-0 flex items-center justify-center rounded-full border border-white/10 bg-white/10 text-white transition-[background-color,color,scale] duration-300 group-hover:scale-105",
+        <CircleMenu
+          triggerLabel={`Open links for ${title}`}
+          isOpen={menuOpen}
+          onOpenChange={onMenuOpenChange}
+          trigger={<ArrowUpRight className="size-5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />}
+          items={[
+            { label: "GitHub", href: githubUrl },
+            ...(liveUrl ? [{ label: "Live", href: liveUrl }] : []),
+          ]}
+          triggerClassName={cn(
             accent
               ? "group-hover:bg-[var(--card-accent)] group-hover:text-[var(--card-accent-fg)]"
               : "group-hover:bg-violet-400 group-hover:text-[#080812]",
           )}
-          style={
-            {
-              width: DISC,
-              height: DISC,
-              "--card-accent": accent,
-              "--card-accent-fg": accentForeground,
-            } as React.CSSProperties
-          }
-        >
-          <ArrowUpRight className="size-5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-        </span>
+          triggerStyle={{
+            width: DISC,
+            height: DISC,
+            "--card-accent": accent,
+            "--card-accent-fg": accentForeground,
+          } as React.CSSProperties}
+        />
       </div>
 
       <h3 className="type-subheading mt-4 font-semibold tracking-tight text-white">{title}</h3>
@@ -144,7 +152,7 @@ export function NotchedProjectCard({
           ))}
         </ul>
       )}
-    </a>
+    </article>
   );
 }
 

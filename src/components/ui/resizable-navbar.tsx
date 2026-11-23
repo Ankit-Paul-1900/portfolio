@@ -133,13 +133,14 @@ export const MobileNav = ({ children, className, visible }: MobileNavProps) => (
   <motion.div
     animate={{
       backdropFilter: "blur(16px)",
-      boxShadow: visible ? "0 8px 32px rgba(0,0,0,.3)" : "0 4px 24px rgba(0,0,0,.18)",
+      backgroundColor: "rgba(0,0,0,0)",
+      boxShadow: visible ? "0 10px 30px rgba(0,0,0,.32)" : "0 6px 22px rgba(0,0,0,.24)",
       width: visible ? "94%" : "100%",
       y: visible ? 8 : 0,
     }}
     transition={{ type: "spring", stiffness: 200, damping: 50 }}
     className={cn(
-      "relative z-50 mx-auto flex w-full max-w-5xl flex-col items-center justify-between rounded-full border border-white/10 bg-[#090914]/55 px-3 py-1.5 backdrop-blur-xl lg:hidden",
+      "relative z-50 mx-auto flex w-full max-w-5xl flex-col items-center justify-between rounded-full border-0 bg-transparent px-3 py-1.5 backdrop-blur-xl lg:hidden",
       className,
     )}
   >
@@ -169,7 +170,7 @@ export const MobileNavMenu = ({
           if (event.target === event.currentTarget) onClose();
         }}
         className={cn(
-          "type-body absolute inset-x-0 top-[calc(100%+0.5rem)] z-50 flex w-full flex-col items-start justify-start gap-4 rounded-2xl border border-white/10 bg-[#10101e]/95 px-5 py-5 shadow-[0_16px_48px_rgba(0,0,0,.35)] backdrop-blur-2xl",
+          "type-body absolute inset-x-0 top-[calc(100%+0.5rem)] z-50 flex w-full flex-col items-start justify-start gap-4 rounded-2xl border border-white/10 bg-[#080812] px-5 py-5 shadow-[0_16px_48px_rgba(0,0,0,.35)]",
           className,
         )}
       >
@@ -187,9 +188,9 @@ export const MobileNavToggle = ({
   onClick: () => void;
 }) =>
   isOpen ? (
-    <X className="size-4 cursor-pointer text-white" onClick={onClick} />
+    <X className="size-5 cursor-pointer text-white" strokeWidth={3} onClick={onClick} />
   ) : (
-    <Menu className="size-4 cursor-pointer text-white" onClick={onClick} />
+    <Menu className="size-5 cursor-pointer text-white" strokeWidth={3} onClick={onClick} />
   );
 
 export const NavbarLogo = () => (
