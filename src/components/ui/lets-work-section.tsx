@@ -21,10 +21,9 @@ export function LetsWorkTogether() {
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (!entry.isIntersecting) {
+        if (!entry.isIntersecting && !showContact) {
           setIsHovered(false);
           setIsClicked(false);
-          setShowContact(false);
         }
       },
       { threshold: 0.01 },
@@ -32,7 +31,7 @@ export function LetsWorkTogether() {
 
     observer.observe(section);
     return () => observer.disconnect();
-  }, []);
+  }, [showContact]);
 
   return (
     <section id="contact" ref={sectionRef} className={`dark relative flex w-full snap-start items-center justify-center overflow-x-hidden px-4 py-6 text-white sm:px-8 sm:py-8 ${showContact ? "min-h-screen overflow-y-visible md:h-auto md:min-h-screen" : "min-h-screen"}`}>
