@@ -112,7 +112,7 @@ export function HeroSection() {
           transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
           className="mt-7 flex w-full flex-col items-stretch justify-center gap-3 sm:w-auto sm:flex-row sm:items-center sm:gap-3"
         >
-          <Button size="lg" onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })} className="type-body h-11 w-full gap-2 rounded-full border-0 bg-violet-400/[0.09] px-6 font-semibold text-cyan-200 shadow-[0_8px_28px_rgba(167,139,250,.08)] backdrop-blur-xl transition-all hover:-translate-y-0.5 hover:bg-violet-400/[0.16] sm:w-auto">
+          <Button size="lg" onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })} className="type-body h-11 w-full gap-2 rounded-full border-0 bg-violet-400/[0.09] px-6 font-semibold text-cyan-200 shadow-[0_3px_10px_rgba(167,139,250,.03)] backdrop-blur-xl transition-all hover:-translate-y-0.5 hover:bg-violet-400/[0.16] sm:w-auto">
             View My Projects <ArrowUpRight className="size-4" />
           </Button>
           <Button size="lg" onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })} className="type-body h-11 w-full gap-2 rounded-full bg-transparent px-6 font-semibold text-white/90 backdrop-blur-xl transition-all hover:-translate-y-0.5 hover:bg-white/[0.045] sm:w-auto">

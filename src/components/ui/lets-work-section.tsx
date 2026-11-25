@@ -35,9 +35,9 @@ export function LetsWorkTogether() {
   }, []);
 
   return (
-    <section id="contact" ref={sectionRef} className={`dark relative flex w-full snap-start items-center justify-center overflow-x-hidden px-4 py-6 text-white sm:px-8 sm:py-8 ${showContact ? "h-dvh min-h-0 overflow-y-hidden md:h-auto md:min-h-screen md:overflow-y-visible" : "min-h-screen"}`}>
+    <section id="contact" ref={sectionRef} className={`dark relative flex w-full snap-start items-center justify-center overflow-x-hidden px-4 py-6 text-white sm:px-8 sm:py-8 ${showContact ? "min-h-screen overflow-y-visible md:h-auto md:min-h-screen" : "min-h-screen"}`}>
       <div
-        className={`relative flex w-full max-w-7xl justify-center py-3 ${showContact ? "h-full min-h-0 items-start pt-2 sm:items-center sm:pt-3" : "min-h-[calc(100dvh-3rem)] items-center sm:min-h-[calc(100dvh-4rem)]"}`}
+        className={`relative flex w-full max-w-7xl justify-center py-3 ${showContact ? "h-full min-h-0 items-start pt-16 sm:pt-20 md:items-center" : "min-h-[calc(100dvh-3rem)] items-center sm:min-h-[calc(100dvh-4rem)]"}`}
         aria-live="polite"
       >
         <div
